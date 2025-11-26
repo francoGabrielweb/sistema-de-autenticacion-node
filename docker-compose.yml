@@ -3,10 +3,7 @@ services:
     image: mysql:latest
     container_name: mysql_auth
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: miapp
-      MYSQL_USER: user
-      MYSQL_PASSWORD: user123
+      MYSQL_ROOT_PASSWORD: ${DBPASS}
     ports:
       - "3306:3306"
     volumes:
@@ -16,7 +13,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin_dev
+    container_name: phpmyadmin_auth
     environment:
       PMA_HOST: mysql
       PMA_USER: root
